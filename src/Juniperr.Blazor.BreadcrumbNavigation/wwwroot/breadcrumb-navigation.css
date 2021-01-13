@@ -1,0 +1,26 @@
+﻿ul.jnprr-breadcrumb-navigation {
+    padding: .75rem 1rem;
+    list-style: none;
+}
+
+ul.jnprr-breadcrumb-navigation li {
+    display: inline;
+}
+
+ul.jnprr-breadcrumb-navigation li + li:before {
+    padding-right: .5rem;
+    padding-left: .5rem;
+    color: #6c757d;
+    content: "/\00a0";
+}
+
+ul.jnprr-breadcrumb-navigation li a {
+}
+
+ul.jnprr-breadcrumb-navigation li a.active {
+    color: #6c757d;
+    text-decoration: underline;
+}
+
+ul.jnprr-breadcrumb-navigation li a.active:hover {
+}

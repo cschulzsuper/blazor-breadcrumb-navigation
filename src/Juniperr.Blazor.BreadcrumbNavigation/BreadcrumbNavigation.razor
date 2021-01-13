@@ -1,0 +1,11 @@
+﻿@if (Breadcrumbs.Any())
+{
+<ul class="jnprr-breadcrumb-navigation">
+        @foreach (var breadcrumb in Breadcrumbs)
+        {
+            <li>
+                @breadcrumb.RenderFragment
+            </li>
+        }
+</ul>
+}
