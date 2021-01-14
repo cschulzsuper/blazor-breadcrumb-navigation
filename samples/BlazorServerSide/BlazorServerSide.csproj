@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Breadcrumbs\" />
+    <ProjectReference Include="..\..\src\Juniperr.Blazor.BreadcrumbNavigation\Juniperr.Blazor.BreadcrumbNavigation.csproj" />
   </ItemGroup>
 
 </Project>

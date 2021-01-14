@@ -1,6 +1,7 @@
 ﻿ul.jnprr-breadcrumb-navigation {
     padding: .75rem 1rem;
     list-style: none;
+    margin: 0;
 }
 
 ul.jnprr-breadcrumb-navigation li {

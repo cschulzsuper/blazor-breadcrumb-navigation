@@ -4,4 +4,19 @@
 
 Welcome to your new app.
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+@code {
+
+    [CascadingParameter]
+    private IBreadcrumbService BreadcrumbService { get; set; }
+
+    public override Task SetParametersAsync(ParameterView parameters)
+    {
+        return base.SetParametersAsync(parameters);
+    }
+
+    protected override Task OnParametersSetAsync()
+    {
+        BreadcrumbService.Set<IndexBreadcrumb>(0);
+        return base.OnParametersSetAsync();
+    }
+}

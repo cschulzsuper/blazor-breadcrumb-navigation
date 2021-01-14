@@ -4,21 +4,22 @@ namespace Juniperr.Blazor.BreadcrumbNavigation.Services
 {
     public class BreadcrumbBuilder
     {
-        internal BreadcrumbBuilder()
+        private readonly BreadcrumbInstance _breadcrumbInstance;
+
+        internal BreadcrumbBuilder(BreadcrumbInstance breadcrumbInstance)
         {
+            _breadcrumbInstance = breadcrumbInstance;
         }
 
-        internal BreadcrumbInstance Instance { get; } = new BreadcrumbInstance();
-
-        public BreadcrumbBuilder Title(string title)
+        public BreadcrumbBuilder SetTitle(string title)
         {
-            Instance.Title = title;
+            _breadcrumbInstance.Title = title;
             return this;
         }
 
-        public BreadcrumbBuilder Href(string href)
+        public BreadcrumbBuilder SetUrl(string url)
         {
-            Instance.Href = href;
+            _breadcrumbInstance.Url = url;
             return this;
         }
     }
