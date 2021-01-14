@@ -1,12 +1,10 @@
-﻿using Juniperr.Blazor.BreadcrumbNavigation.DataClasses;
-
-namespace Juniperr.Blazor.BreadcrumbNavigation.Services
+﻿namespace Juniperr.Blazor.BreadcrumbNavigation.Services
 {
     public class BreadcrumbBuilder
     {
-        private readonly BreadcrumbInstance _breadcrumbInstance;
+        private readonly BreadcrumbInfo _breadcrumbInstance;
 
-        internal BreadcrumbBuilder(BreadcrumbInstance breadcrumbInstance)
+        internal BreadcrumbBuilder(BreadcrumbInfo breadcrumbInstance)
         {
             _breadcrumbInstance = breadcrumbInstance;
         }

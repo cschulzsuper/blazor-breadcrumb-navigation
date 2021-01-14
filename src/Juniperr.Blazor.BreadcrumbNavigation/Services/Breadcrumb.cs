@@ -1,5 +1,4 @@
-﻿using Juniperr.Blazor.BreadcrumbNavigation.DataClasses;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
 using Microsoft.AspNetCore.Components.Routing;
 using System;
@@ -12,7 +11,7 @@ namespace Juniperr.Blazor.BreadcrumbNavigation.Services
 {
     public abstract class Breadcrumb : ComponentBase
     {
-        private readonly BreadcrumbInstance _breadcrumbInstance = new BreadcrumbInstance();
+        private readonly BreadcrumbInfo _breadcrumbInstance = new BreadcrumbInfo();
 
         protected override void BuildRenderTree(RenderTreeBuilder builder)
         {

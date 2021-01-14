@@ -1,11 +1,13 @@
 ﻿using Microsoft.AspNetCore.Components;
+using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace Juniperr.Blazor.BreadcrumbNavigation.Services
 {
     public interface IBreadcrumbService
     {
+        event Action<int, RenderFragment>? Added;
+
         public IBreadcrumbService Set<TBreadcrumb>(int index)
             where TBreadcrumb : Breadcrumb
             => Set<TBreadcrumb>(index, new Dictionary<string, object>());

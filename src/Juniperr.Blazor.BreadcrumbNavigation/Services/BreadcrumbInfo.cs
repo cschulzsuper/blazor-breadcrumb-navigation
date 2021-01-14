@@ -1,6 +1,6 @@
-﻿namespace Juniperr.Blazor.BreadcrumbNavigation.DataClasses
+﻿namespace Juniperr.Blazor.BreadcrumbNavigation.Services
 {
-    internal class BreadcrumbInstance
+    internal class BreadcrumbInfo
     {
         public string Title { get; set; } = string.Empty;
         public string Url { get; set; } = string.Empty;

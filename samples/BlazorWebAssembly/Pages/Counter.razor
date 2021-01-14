@@ -7,6 +7,16 @@
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 @code {
+
+    [CascadingParameter]
+    private IBreadcrumbService BreadcrumbService { get; set; }
+
+    protected override Task OnParametersSetAsync()
+    {
+        BreadcrumbService.Set<CounterBreadcrumb>(0);
+        return base.OnParametersSetAsync();
+    }
+
     private int currentCount = 0;
 
     private void IncrementCount()

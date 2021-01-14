@@ -1,15 +1,12 @@
-﻿using Juniperr.Blazor.BreadcrumbNavigation.DataClasses;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Routing;
+﻿using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace Juniperr.Blazor.BreadcrumbNavigation.Services
 {
     internal class BreadcrumbService : IBreadcrumbService
     {
-        internal event Action<int,BreadcrumbFragment>? OnBreadcrumbAdded;
+        public event Action<int, RenderFragment>? Added;
 
         public IBreadcrumbService Set<TBreadcrumb>(int index, IReadOnlyDictionary<string, object> parameters)
             where TBreadcrumb : Breadcrumb
@@ -27,12 +24,7 @@ namespace Juniperr.Blazor.BreadcrumbNavigation.Services
                 builder.CloseComponent();
             });
 
-            OnBreadcrumbAdded?.Invoke(
-                index,
-                new BreadcrumbFragment { 
-                    BreadcrumbType = typeof(TBreadcrumb),
-                    RenderFragment = renderFragment });
-
+            Added?.Invoke( index, renderFragment);
             return this;
         }
     }
