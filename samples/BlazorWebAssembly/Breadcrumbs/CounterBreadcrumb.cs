@@ -1,5 +1,4 @@
 ﻿using Juniperr.Blazor.BreadcrumbNavigation.Services;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace BlazorWebAssembly.Breadcrumbs

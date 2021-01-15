@@ -24,7 +24,7 @@ namespace Juniperr.Blazor.BreadcrumbNavigation.Services
                 builder.CloseComponent();
             });
 
-            Added?.Invoke( index, renderFragment);
+            Added?.Invoke(index, renderFragment);
             return this;
         }
     }

@@ -8,7 +8,7 @@ namespace Juniperr.Blazor.BreadcrumbNavigation
 {
     public sealed partial class BreadcrumbNavigation : IDisposable
     {
-        [CascadingParameter] 
+        [CascadingParameter]
         public IBreadcrumbService BreadcrumbService { get; set; } = null!;
 
         private readonly IList<RenderFragment> Breadcrumbs = new List<RenderFragment>();
