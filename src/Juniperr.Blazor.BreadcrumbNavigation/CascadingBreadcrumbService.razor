@@ -1,0 +1,17 @@
+﻿
+<CascadingValue Value="@BreadcrumbService">
+    @ChildContent
+</CascadingValue>
+
+@code {
+
+    [Parameter]
+    public IBreadcrumbService BreadcrumbService { get; set; } = null!;
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; } = null!;
+
+    protected override void OnParametersSet() =>
+        BreadcrumbService ??= new BreadcrumbService();
+
+}

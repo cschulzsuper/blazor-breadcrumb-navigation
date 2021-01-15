@@ -13,7 +13,8 @@
 
     protected override Task OnParametersSetAsync()
     {
-        BreadcrumbService.Set<CounterBreadcrumb>(0);
+        BreadcrumbService.Set<IndexBreadcrumb>(0);
+        BreadcrumbService.Set<CounterBreadcrumb>(1);
         return base.OnParametersSetAsync();
     }
 

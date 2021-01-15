@@ -6,7 +6,7 @@ namespace BlazorWebAssembly.Breadcrumbs
 {
     public class CounterBreadcrumb : Breadcrumb
     {
-        public override Task ConfigureAsync(BreadcrumbBuilder builder, IReadOnlyDictionary<string, object> parameters)
+        public override Task ConfigureAsync(BreadcrumbBuilder builder)
         {
             builder.SetUrl("/counter");
             builder.SetTitle("Counter");

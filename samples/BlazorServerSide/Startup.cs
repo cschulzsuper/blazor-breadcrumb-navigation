@@ -1,5 +1,4 @@
 using BlazorServerSide.Data;
-using Juniperr.Blazor.BreadcrumbNavigation.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
@@ -29,7 +28,6 @@ namespace BlazorServerSide
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
-            services.AddJuniperrBreadcrumbNavigation();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,5 +1,5 @@
-﻿@page "/fetchdata"
-@page "/fetchdata/{date:datetime}"
+﻿@page "/fetch-data"
+@page "/fetch-data/{date:datetime}"
 
 @inject HttpClient Http
 
@@ -28,7 +28,7 @@ else
                 <tr>
                     <td>
                         <NavLink class="nav-link" 
-                                 href=@($"/fetchdata/{forecast.Date:yyyy-MM-dd}")>
+                                 href=@($"/fetch-data/{forecast.Date:yyyy-MM-dd}")>
                             @forecast.Date.ToShortDateString()
                         </NavLink>
                     </td>
@@ -46,18 +46,26 @@ else
     [Parameter]
     public DateTime? Date { get; set; }
 
+    [CascadingParameter]
+    private IBreadcrumbService BreadcrumbService { get; set; }
+
     private WeatherForecast[] forecasts;
 
     protected override async Task OnParametersSetAsync()
     {
+        BreadcrumbService.Set<IndexBreadcrumb>(0);
+        BreadcrumbService.Set<FetchDataBreadcrumb>(1);
+
         forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("sample-data/weather.json");
-        
+
         if (Date.HasValue) {
+            BreadcrumbService.Set<FetchDataItemBreadcrumb>(2,
+                new Dictionary<string, object> { ["date"] = Date });
+
             forecasts = forecasts
-                .Where(x => x.Date == Date)
+                .Where(x => x.Date.Date == Date)
                 .ToArray();
         }
-
     }
 
     public class WeatherForecast

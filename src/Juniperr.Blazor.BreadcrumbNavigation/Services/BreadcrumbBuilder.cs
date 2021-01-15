@@ -2,22 +2,22 @@
 {
     public class BreadcrumbBuilder
     {
-        private readonly BreadcrumbInfo _breadcrumbInstance;
+        private readonly BreadcrumbProperties _breadcrumbProperties;
 
-        internal BreadcrumbBuilder(BreadcrumbInfo breadcrumbInstance)
+        internal BreadcrumbBuilder(BreadcrumbProperties breadcrumbProperties)
         {
-            _breadcrumbInstance = breadcrumbInstance;
+            _breadcrumbProperties = breadcrumbProperties;
         }
 
         public BreadcrumbBuilder SetTitle(string title)
         {
-            _breadcrumbInstance.Title = title;
+            _breadcrumbProperties.Title = title;
             return this;
         }
 
         public BreadcrumbBuilder SetUrl(string url)
         {
-            _breadcrumbInstance.Url = url;
+            _breadcrumbProperties.Url = url;
             return this;
         }
     }

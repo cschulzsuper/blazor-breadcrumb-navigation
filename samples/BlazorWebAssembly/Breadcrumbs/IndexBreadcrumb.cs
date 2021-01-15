@@ -6,7 +6,7 @@ namespace BlazorWebAssembly.Breadcrumbs
 {
     public class IndexBreadcrumb : Breadcrumb
     {
-        public override Task ConfigureAsync(BreadcrumbBuilder builder, IReadOnlyDictionary<string, object> parameters)
+        public override Task ConfigureAsync(BreadcrumbBuilder builder)
         {
             builder.SetUrl(string.Empty);
             builder.SetTitle("Home");
