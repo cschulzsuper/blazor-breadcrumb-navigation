@@ -1,5 +1,5 @@
 # Juniper Blazor Breadcrumb Navigation
-A simple and easy to user breadcrumb navigation component for your Blazor applications.
+A simple breadcrumb navigation component for your Blazor applications.
 
 [![Build Status](https://github.com/jnprr/blazor-breadcrumb-navigation/workflows/Build%20and%20deploy%20master/badge.svg)](https://github.com/jnprr/blazor-breadcrumb-navigation/actions?query=workflow%3A"Build+and+deploy+master")  
 [![Nuget](https://img.shields.io/github/v/release/jnprr/blazor-breadcrumb-navigation?sort=semver)](https://github.com/jnprr/blazor-breadcrumb-navigation/packages/)
@@ -89,3 +89,6 @@ Add the BreadcrumbNavigation component in your *MainLayout*.
     </div>
 </div>
 ```
+
+## Acknowledgments
+- A big resource was @chrissainty's [Blazored Modal](https://github.com/Blazored/Modal) project, where I took most of my inspiration from.
