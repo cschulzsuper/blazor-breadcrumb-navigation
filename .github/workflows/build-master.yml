@@ -9,7 +9,7 @@ env:
     GITHUB_FEED: https://nuget.pkg.github.com/jnprr/
     GITHUB_USER: cschulzsuper
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    PACKAGE_VERSION: ${GITHUB_REF#refs/*/}
+    PACKAGE_VERSION: ${GITHUB_REF#refs/*/v}
 
 jobs:
   build:
@@ -29,7 +29,7 @@ jobs:
       run: dotnet restore
       
     - name: Build
-      run: dotnet build -c Release --no-restore src/$PROJECT_NAME/$PROJECT_NAME.csproj
+      run: dotnet build -c Release --no-restore src/$PROJECT_NAME/$PROJECT_NAME.csproj -p:Version=$PACKAGE_VERSION
       
     - name: Pack
       run: dotnet pack -v normal -c Release --no-restore --include-symbols --include-source -p:PackageVersion=$PACKAGE_VERSION src/$PROJECT_NAME/$PROJECT_NAME.csproj
