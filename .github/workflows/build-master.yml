@@ -40,7 +40,7 @@ jobs:
 
   prerelease:
     needs: build
-    if: "!github.event.release.prerelease"
+    if: github.event.release.prerelease == true
     runs-on: ubuntu-latest
     steps:
       
