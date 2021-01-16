@@ -1,4 +1,4 @@
-name: .NET
+name: Build and deploy master
 
 on:
   release:
@@ -9,7 +9,7 @@ env:
     GITHUB_FEED: https://nuget.pkg.github.com/jnprr/
     GITHUB_USER: cschulzsuper
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    PACKAGE_VERSION: ${GITHUB_REF#refs/*/v}
+    PACKAGE_VERSION: ${{github.ref#refs/*/v}}
 
 jobs:
   build:
