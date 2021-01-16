@@ -9,7 +9,7 @@ env:
     GITHUB_FEED: https://nuget.pkg.github.com/jnprr/
     GITHUB_USER: cschulzsuper
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    PACKAGE_VERSION: ${{github.ref#refs/*/v}}
+    PACKAGE_VERSION: ${{ github.event.release.tag_name }}
 
 jobs:
   build:
