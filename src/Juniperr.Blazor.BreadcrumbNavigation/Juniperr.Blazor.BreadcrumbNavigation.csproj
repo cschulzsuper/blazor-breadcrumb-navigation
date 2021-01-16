@@ -3,8 +3,24 @@
   <PropertyGroup>
 	  <TargetFramework>net5.0</TargetFramework>
 	  <Nullable>enable</Nullable>
-  </PropertyGroup>
+   
+      <Authors>Christian Schulz</Authors>
+      <Company></Company>
+      <Copyright>Copyright 2021 (c) Christian Schulz. All rights reserved.</Copyright>
+    
+      <Description>A simple breadcrumb navigation component for your Blazor applications.</Description>
+      <IncludeSymbols>true</IncludeSymbols>
+      <SymbolPackageFormat>snupkg</SymbolPackageFormat>
 
+      <!-- NuGet settings -->
+      <PackageId>Blazored.Modal</PackageId>
+      <PackageTags>Blazor;Razor;Components;Breadcrumb;Breadcrumbs;Breadcrumb Navigation;ASP.NET Core;CSharp;Web</PackageTags>
+      <PackageLicenseExpression>MIT</PackageLicenseExpression>
+      <PackageProjectUrl>https://github.com/jnprr/blazor-breadcrumb-navigation</PackageProjectUrl>
+      <RepositoryType>git</RepositoryType>
+      <RepositoryUrl>https://github.com/jnprr/blazor-breadcrumb-navigation</RepositoryUrl>
+		  	
+  </PropertyGroup>
   
   <ItemGroup>
     <SupportedPlatform Include="browser" />
