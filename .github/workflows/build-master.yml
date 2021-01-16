@@ -29,10 +29,10 @@ jobs:
       run: dotnet restore
       
     - name: Build
-      run: dotnet build -c Release --no-restore src/$PROJECT_NAME/$PROJECT_NAME.csproj -p:Version=$PACKAGE_VERSION
+      run: dotnet build -c Release --no-restore src/$PROJECT_NAME/$PROJECT_NAME.csproj -p:Version=${PACKAGE_VERSION//v}
       
     - name: Pack
-      run: dotnet pack -v normal -c Release --no-restore --include-symbols --include-source -p:PackageVersion=$PACKAGE_VERSION src/$PROJECT_NAME/$PROJECT_NAME.csproj
+      run: dotnet pack -v normal -c Release --no-restore --include-symbols --include-source -p:PackageVersion=${PACKAGE_VERSION//v} src/$PROJECT_NAME/$PROJECT_NAME.csproj
       
     - name: Upload Artifact
       uses: actions/upload-artifact@v2
