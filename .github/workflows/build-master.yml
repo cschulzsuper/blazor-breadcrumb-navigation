@@ -7,8 +7,6 @@ on:
 env:
     PROJECT_NAME: Juniperr.Blazor.BreadcrumbNavigation
     GITHUB_FEED: https://nuget.pkg.github.com/jnprr/
-    GITHUB_USER: cschulzsuper
-    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     PACKAGE_VERSION: ${{ github.event.release.tag_name }}
 
 jobs:
@@ -23,13 +21,13 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 5.0.x
+        dotnet-version: 5.0.102
     
     - name: Restore dependencies
       run: dotnet restore
       
     - name: Build
-      run: dotnet build -c Release --no-restore src/$PROJECT_NAME/$PROJECT_NAME.csproj -p:Version=${PACKAGE_VERSION//v}
+      run: dotnet build -c Release --no-restore -p:Version=${PACKAGE_VERSION//v} src/$PROJECT_NAME/$PROJECT_NAME.csproj
       
     - name: Pack
       run: dotnet pack -v normal -c Release --no-restore --include-symbols --include-source -p:PackageVersion=${PACKAGE_VERSION//v} src/$PROJECT_NAME/$PROJECT_NAME.csproj
@@ -42,16 +40,14 @@ jobs:
 
   prerelease:
     needs: build
-    if: github.event_name != 'release'
+    if: "!github.event.release.prerelease"
     runs-on: ubuntu-latest
     steps:
+      
       - name: Download Artifact
         uses: actions/download-artifact@v1
         with:
           name: nupkg
+    
       - name: Push to GitHub Feed
-        run: |
-          for f in ./nupkg/*.nupkg
-          do
-            curl -vX PUT -u "$GITHUB_USER:$GITHUB_TOKEN" -F package=@$f $GITHUB_FEED
-          done
+        run: dotnet nuget push ./<project>/out/*.nupkg --source $GITHUB_FEED --api-key ${{github.token}} --skip-duplicate --no-symbols true
