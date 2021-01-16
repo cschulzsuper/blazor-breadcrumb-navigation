@@ -34,7 +34,7 @@ jobs:
       run: dotnet pack -v normal -c Release --no-restore --include-symbols --include-source -p:PackageVersion=${PACKAGE_VERSION//v} src/$PROJECT_NAME/$PROJECT_NAME.csproj
 
     - name: Push to GitHub Feed
-      run: dotnet nuget push ./nupkg/*.nupkg --source $GITHUB_FEED --api-key ${{github.token}} --skip-duplicate --no-symbols true
+      run: dotnet nuget push ./src/${{ env.PROJECT_NAME }}/bin/Release/*.nupkg --source $GITHUB_FEED --api-key ${{github.token}} --skip-duplicate --no-symbols true
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v2
