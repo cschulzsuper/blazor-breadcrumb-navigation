@@ -1,7 +1,7 @@
 # Juniper Blazor Breadcrumb Navigation
 A simple breadcrumb navigation component for your Blazor applications.
 
-[![Build Status](https://github.com/jnprr/blazor-breadcrumb-navigation/workflows/Deploy%20Master/badge.svg)](https://github.com/jnprr/blazor-breadcrumb-navigation/actions?query=workflow%3A"Deploy+Master")  
+[![Build](https://img.shields.io/github/workflow/status/jnprr/blazor-breadcrumb-navigation/Deploy%20Master)](https://github.com/jnprr/blazor-breadcrumb-navigation/actions?query=workflow%3A"Deploy+Master")
 [![Nuget](https://img.shields.io/github/v/release/jnprr/blazor-breadcrumb-navigation?sort=semver)](https://github.com/jnprr/blazor-breadcrumb-navigation/packages/)
 
 ## Getting Started
