@@ -14,7 +14,7 @@ namespace BlazorWebAssembly.Breadcrumbs
         {
             var date = Date ?? DateTime.Today;
 
-            builder.SetUrl($"/fetch-data/{date:yyyy-MM-dd}");
+            builder.SetUrl($"fetch-data/{date:yyyy-MM-dd}");
             builder.SetTitle(date.ToShortDateString());
 
             return Task.CompletedTask;

@@ -7,7 +7,7 @@ namespace BlazorServerSide.Breadcrumbs
     {
         public override Task ConfigureAsync(BreadcrumbBuilder builder)
         {
-            builder.SetUrl("/fetch-data");
+            builder.SetUrl("fetch-data");
             builder.SetTitle("Fetch data");
 
             return Task.CompletedTask;

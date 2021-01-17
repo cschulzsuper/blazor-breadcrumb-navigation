@@ -28,7 +28,7 @@ else
                 <tr>
                     <td>
                         <NavLink class="nav-link" 
-                                 href=@($"/fetch-data/{forecast.Date:yyyy-MM-dd}")>
+                                 href=@($"fetch-data/{forecast.Date:yyyy-MM-dd}")>
                             @forecast.Date.ToShortDateString()
                         </NavLink>
                     </td>
