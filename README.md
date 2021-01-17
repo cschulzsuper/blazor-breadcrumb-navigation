@@ -91,4 +91,4 @@ Add the BreadcrumbNavigation component in your *MainLayout*.
 ```
 
 ## Acknowledgments
-- A big resource was @chrissainty's [Blazored Modal](https://github.com/Blazored/Modal) project, where I took most of my inspiration from.
+- A big resource was [@chrissainty](https://github.com/chrissainty)'s [Blazored Modal](https://github.com/Blazored/Modal) project, where I took most of my inspiration from.
