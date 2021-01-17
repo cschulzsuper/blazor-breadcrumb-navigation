@@ -1,4 +1,4 @@
-name: Build Sample
+name: Deploy Sample
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
 
 env:
     PROJECT_NAME: Juniperr.Blazor.BreadcrumbNavigation
-    PACKAGE_VERSION: ${{ github.event.release.tag_name }}
+    PACKAGE_VERSION: ${{ git.closest.tag.name }}
 
 jobs:
   build:
