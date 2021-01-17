@@ -1,4 +1,4 @@
-name: Build and deploy master
+name: Deploy Master
 
 on:
   release:
