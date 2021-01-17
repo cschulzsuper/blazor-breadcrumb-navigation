@@ -1,27 +1,27 @@
-﻿ul.jnprr-breadcrumb-navigation {
+﻿ul {
     padding: .75rem 1rem;
     list-style: none;
     margin: 0;
 }
 
-    ul.jnprr-breadcrumb-navigation ::deep li {
+    ul ::deep li {
         display: inline;
     }
 
-    ul.jnprr-breadcrumb-navigation ::deep li + li:before {
+    ul ::deep li + li:before {
         padding-right: .5rem;
         padding-left: .5rem;
         color: #6c757d;
         content: "/\00a0";
     }
 
-    ul.jnprr-breadcrumb-navigation ::deep li a {
+    ul ::deep li a {
     }
 
-        ul.jnprr-breadcrumb-navigation ::deep li a.active {
+        ul ::deep li a.active {
             color: #6c757d;
             text-decoration: underline;
         }
 
-            ul.jnprr-breadcrumb-navigation ::deep li a.active:hover {
+            ul ::deep li a.active:hover {
             }
