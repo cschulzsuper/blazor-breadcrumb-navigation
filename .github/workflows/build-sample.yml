@@ -1,12 +1,12 @@
-name: Build master
+name: Build Sample
 
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
+      - master
 
 env:
     PROJECT_NAME: Juniperr.Blazor.BreadcrumbNavigation
