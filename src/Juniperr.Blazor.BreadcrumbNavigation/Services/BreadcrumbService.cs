@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Juniperr.Blazor.BreadcrumbNavigation.Services
 {
-    internal class BreadcrumbService : IBreadcrumbService
+    class BreadcrumbService : IBreadcrumbService
     {
         public event Action<int, RenderFragment>? Added;
 
@@ -16,9 +16,9 @@ namespace Juniperr.Blazor.BreadcrumbNavigation.Services
                 builder.OpenComponent<TBreadcrumb>(0);
 
                 var i = 1;
-                foreach (var parameter in parameters)
+                foreach (var (key, value) in parameters)
                 {
-                    builder.AddAttribute(i++, parameter.Key, parameter.Value);
+                    builder.AddAttribute(i++, key, value);
                 }
 
                 builder.CloseComponent();

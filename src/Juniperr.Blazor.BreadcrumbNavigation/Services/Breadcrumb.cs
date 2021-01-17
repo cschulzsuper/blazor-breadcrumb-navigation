@@ -11,16 +11,16 @@ namespace Juniperr.Blazor.BreadcrumbNavigation.Services
 
         private RenderHandle _renderHandle;
 
-        public Breadcrumb()
-            => _renderFragment = new RenderFragment(builder =>
+        protected Breadcrumb()
+            => _renderFragment = builder =>
             {
                 builder.OpenComponent<NavLink>(0);
                 builder.AddAttribute(1, "href", _breadcrumbInstance.Url);
                 builder.AddAttribute(2, nameof(NavLink.Match), NavLinkMatch.All);
                 builder.AddAttribute(3, nameof(NavLink.ChildContent),
-                    (RenderFragment)((innerBuilder) => innerBuilder.AddContent(4, _breadcrumbInstance.Title)));
+                    (RenderFragment) (innerBuilder => innerBuilder.AddContent(4, _breadcrumbInstance.Title)));
                 builder.CloseComponent();
-            });
+            };
 
         public void Attach(RenderHandle renderHandle)
             => _renderHandle = renderHandle;

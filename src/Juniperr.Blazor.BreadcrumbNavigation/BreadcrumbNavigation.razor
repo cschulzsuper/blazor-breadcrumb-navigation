@@ -1,7 +1,7 @@
-﻿@if (Breadcrumbs.Any())
+﻿@if (_breadcrumbs.Any())
 {
 <ul class="@CssClass">
-        @foreach (var breadcrumb in Breadcrumbs)
+        @foreach (var breadcrumb in _breadcrumbs)
         {
             <li>
                 @breadcrumb

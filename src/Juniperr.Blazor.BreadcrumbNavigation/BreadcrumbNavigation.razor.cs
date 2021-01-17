@@ -14,7 +14,7 @@ namespace Juniperr.Blazor.BreadcrumbNavigation
         [CascadingParameter]
         public IBreadcrumbService BreadcrumbService { get; set; } = null!;
 
-        private readonly IList<RenderFragment> Breadcrumbs = new List<RenderFragment>();
+        private readonly IList<RenderFragment> _breadcrumbs = new List<RenderFragment>();
 
         protected override void OnInitialized()
             => BreadcrumbService.Added += HandleBreadcrumbAdded;
@@ -24,10 +24,10 @@ namespace Juniperr.Blazor.BreadcrumbNavigation
 
         private void HandleBreadcrumbAdded(int index, RenderFragment breadcrumb)
         {
-            while (Breadcrumbs.Count > index)
-                Breadcrumbs.Remove(Breadcrumbs.Last());
+            while (_breadcrumbs.Count > index)
+                _breadcrumbs.Remove(_breadcrumbs.Last());
 
-            Breadcrumbs.Add(breadcrumb);
+            _breadcrumbs.Add(breadcrumb);
             StateHasChanged();
         }
     }

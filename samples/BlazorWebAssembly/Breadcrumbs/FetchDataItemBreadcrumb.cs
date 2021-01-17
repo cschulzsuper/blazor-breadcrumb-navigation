@@ -8,7 +8,7 @@ namespace BlazorWebAssembly.Breadcrumbs
     public class FetchDataItemBreadcrumb : Breadcrumb
     {
         [Parameter]
-        public DateTime? Date { get; set; } = null;
+        public DateTime? Date { get; set; }
 
         public override Task ConfigureAsync(BreadcrumbBuilder builder)
         {
