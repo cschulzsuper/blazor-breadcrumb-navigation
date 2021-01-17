@@ -10,7 +10,6 @@ on:
 
 env:
     PROJECT_NAME: Juniperr.Blazor.BreadcrumbNavigation
-    PACKAGE_VERSION: ${{ git.closest.tag.name }}
 
 jobs:
   build:
@@ -30,11 +29,8 @@ jobs:
       run: dotnet restore
       
     - name: Build
-      run: dotnet build -c Release --no-restore -p:Version=${PACKAGE_VERSION//v} src/$PROJECT_NAME/$PROJECT_NAME.csproj
+      run: dotnet build -c Release --no-restore src/$PROJECT_NAME/$PROJECT_NAME.csproj
       
-    - name: Pack
-      run: dotnet pack -v normal -c Release --no-restore --include-symbols --include-source -p:PackageVersion=${PACKAGE_VERSION//v} src/$PROJECT_NAME/$PROJECT_NAME.csproj
-
     - name: Publish Sample Site
       run: dotnet publish -c Release samples/BlazorWebAssembly/BlazorWebAssembly.csproj
 
