@@ -38,7 +38,7 @@ jobs:
       uses: SteveSandersonMS/ghaction-rewrite-base-href@v1
       with:
         html_path: samples/BlazorWebAssembly/bin/Release/net5.0/publish/wwwroot/index.html
-        base_href: /${{ env.PROJECT_NAME }}/
+        base_href: /${{ github.repository }}/
 
     - name: Add .nojekyll file
       run: touch samples/BlazorWebAssembly/bin/Release/net5.0/publish/wwwroot/.nojekyll
