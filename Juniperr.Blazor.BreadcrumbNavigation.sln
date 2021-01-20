@@ -5,9 +5,13 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Juniperr.Blazor.BreadcrumbNavigation", "src\Juniperr.Blazor.BreadcrumbNavigation\Juniperr.Blazor.BreadcrumbNavigation.csproj", "{57680F6A-F216-4279-9104-C55E0D8E9D66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorServerSide", "samples\BlazorServerSide\BlazorServerSide.csproj", "{3F41843F-389C-49AD-A686-82DBE29D4046}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorServerSide", "samples\BlazorServerSide\BlazorServerSide.csproj", "{3F41843F-389C-49AD-A686-82DBE29D4046}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWebAssembly", "samples\BlazorWebAssembly\BlazorWebAssembly.csproj", "{ED02FAC4-7734-4085-8983-C094DB6197ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWebAssembly", "samples\BlazorWebAssembly\BlazorWebAssembly.csproj", "{ED02FAC4-7734-4085-8983-C094DB6197ED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{EF365989-7E1A-4CDF-B3C5-F46F728A1C0C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{96098FB7-E807-4416-8911-173F370D7A64}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,6 +34,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{57680F6A-F216-4279-9104-C55E0D8E9D66} = {96098FB7-E807-4416-8911-173F370D7A64}
+		{3F41843F-389C-49AD-A686-82DBE29D4046} = {EF365989-7E1A-4CDF-B3C5-F46F728A1C0C}
+		{ED02FAC4-7734-4085-8983-C094DB6197ED} = {EF365989-7E1A-4CDF-B3C5-F46F728A1C0C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DA2FAB32-2A7A-423A-8747-4B12F4A378D7}
