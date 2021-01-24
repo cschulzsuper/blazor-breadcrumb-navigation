@@ -66,10 +66,11 @@ Set a Breadcrumb by calling `Set` with the type of your Breadcrumb and a positio
     [CascadingParameter]
     private IBreadcrumbService BreadcrumbService { get; set; }
 
-    protected override Task OnParametersSetAsync()
+    protected override void OnAfterRender(bool _)
     {
-        BreadcrumbService.Set<IndexBreadcrumb>(0);
-        return base.OnParametersSetAsync();
+        BreadcrumbService
+            .Clear()
+            .Set<IndexBreadcrumb>();
     }
 }
 ```
