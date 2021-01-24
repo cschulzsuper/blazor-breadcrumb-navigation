@@ -6,9 +6,17 @@ namespace Juniperr.Blazor.BreadcrumbNavigation.Services
 {
     class BreadcrumbService : IBreadcrumbService
     {
-        public event Action<int, RenderFragment>? Added;
+        public event Action<RenderFragment>? Added;
 
-        public IBreadcrumbService Set<TBreadcrumb>(int index, IReadOnlyDictionary<string, object> parameters)
+        public event Action? Reset;
+
+        public IBreadcrumbService Clear()
+        {
+            Reset?.Invoke();
+            return this;
+        }
+
+        public IBreadcrumbService Set<TBreadcrumb>(IReadOnlyDictionary<string, object> parameters)
             where TBreadcrumb : Breadcrumb
         {
             var renderFragment = new RenderFragment(builder =>
@@ -24,7 +32,7 @@ namespace Juniperr.Blazor.BreadcrumbNavigation.Services
                 builder.CloseComponent();
             });
 
-            Added?.Invoke(index, renderFragment);
+            Added?.Invoke(renderFragment);
             return this;
         }
     }

@@ -6,17 +6,21 @@ namespace Juniperr.Blazor.BreadcrumbNavigation.Services
 {
     public interface IBreadcrumbService
     {
-        event Action<int, RenderFragment>? Added;
+        event Action<RenderFragment>? Added;
 
-        public IBreadcrumbService Set<TBreadcrumb>(int index)
+        event Action? Reset;
+
+        public IBreadcrumbService Clear();
+
+        public IBreadcrumbService Set<TBreadcrumb>()
             where TBreadcrumb : Breadcrumb
-            => Set<TBreadcrumb>(index, new Dictionary<string, object>());
+            => Set<TBreadcrumb>(new Dictionary<string, object>());
 
-        public IBreadcrumbService Set<TBreadcrumb>(int index, ParameterView parameters)
+        public IBreadcrumbService Set<TBreadcrumb>(ParameterView parameters)
             where TBreadcrumb : Breadcrumb
-            => Set<TBreadcrumb>(index, parameters.ToDictionary());
+            => Set<TBreadcrumb>(parameters.ToDictionary());
 
-        IBreadcrumbService Set<TBreadcrumb>(int index, IReadOnlyDictionary<string, object> parameters)
+        IBreadcrumbService Set<TBreadcrumb>(IReadOnlyDictionary<string, object> parameters)
             where TBreadcrumb : Breadcrumb;
     }
 }

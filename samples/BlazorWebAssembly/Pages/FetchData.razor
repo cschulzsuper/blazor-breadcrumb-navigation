@@ -53,18 +53,27 @@ else
 
     protected override async Task OnParametersSetAsync()
     {
-        BreadcrumbService.Set<IndexBreadcrumb>(0);
-        BreadcrumbService.Set<FetchDataBreadcrumb>(1);
-
         forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("sample-data/weather.json");
 
-        if (Date.HasValue) {
-            BreadcrumbService.Set<FetchDataItemBreadcrumb>(2,
-                new Dictionary<string, object> { ["date"] = Date });
-
+        if (Date.HasValue)
+        {
             forecasts = forecasts
                 .Where(x => x.Date.Date == Date)
                 .ToArray();
+        }
+    }
+
+    protected override void OnAfterRender(bool _)
+    {
+        BreadcrumbService
+            .Clear()
+            .Set<IndexBreadcrumb>()
+            .Set<FetchDataBreadcrumb>();
+
+        if (Date.HasValue)
+        {
+            var parameters = new Dictionary<string, object> {["date"] = Date};
+            BreadcrumbService.Set<FetchDataItemBreadcrumb>(parameters);
         }
     }
 

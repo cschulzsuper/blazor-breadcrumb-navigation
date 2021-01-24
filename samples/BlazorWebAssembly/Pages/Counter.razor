@@ -11,11 +11,12 @@
     [CascadingParameter]
     private IBreadcrumbService BreadcrumbService { get; set; }
 
-    protected override Task OnParametersSetAsync()
+    protected override void OnAfterRender(bool _)
     {
-        BreadcrumbService.Set<IndexBreadcrumb>(0);
-        BreadcrumbService.Set<CounterBreadcrumb>(1);
-        return base.OnParametersSetAsync();
+        BreadcrumbService
+            .Clear()
+            .Set<IndexBreadcrumb>()
+            .Set<CounterBreadcrumb>();
     }
 
     private int currentCount = 0;

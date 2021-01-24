@@ -9,9 +9,10 @@ Welcome to your new app.
     [CascadingParameter]
     private IBreadcrumbService BreadcrumbService { get; set; }
 
-    protected override Task OnParametersSetAsync()
+    protected override void OnAfterRender(bool _)
     {
-        BreadcrumbService.Set<IndexBreadcrumb>(0);
-        return base.OnParametersSetAsync();
+        BreadcrumbService
+            .Clear()
+            .Set<IndexBreadcrumb>();
     }
 }

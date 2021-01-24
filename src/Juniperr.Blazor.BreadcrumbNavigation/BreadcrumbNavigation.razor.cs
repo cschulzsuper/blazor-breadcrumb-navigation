@@ -17,16 +17,25 @@ namespace Juniperr.Blazor.BreadcrumbNavigation
         private readonly IList<RenderFragment> _breadcrumbs = new List<RenderFragment>();
 
         protected override void OnInitialized()
-            => BreadcrumbService.Added += HandleBreadcrumbAdded;
+        {
+           BreadcrumbService.Added += HandleBreadcrumbAdded;
+           BreadcrumbService.Reset += HandleBreadcrumbReset;
+        }
 
         void IDisposable.Dispose()
-            => BreadcrumbService.Added -= HandleBreadcrumbAdded;
-
-        private void HandleBreadcrumbAdded(int index, RenderFragment breadcrumb)
         {
-            while (_breadcrumbs.Count > index)
-                _breadcrumbs.Remove(_breadcrumbs.Last());
+            BreadcrumbService.Added -= HandleBreadcrumbAdded;
+            BreadcrumbService.Reset -= HandleBreadcrumbReset;
+        }
 
+        private void HandleBreadcrumbReset()
+        {
+            _breadcrumbs.Clear();
+            StateHasChanged();
+        }
+
+        private void HandleBreadcrumbAdded(RenderFragment breadcrumb)
+        {
             _breadcrumbs.Add(breadcrumb);
             StateHasChanged();
         }
