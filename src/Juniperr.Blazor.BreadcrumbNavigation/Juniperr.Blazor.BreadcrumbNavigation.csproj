@@ -17,6 +17,7 @@
       <PackageTags>Blazor;Razor;Components;Breadcrumb;Breadcrumbs;Breadcrumb Navigation;ASP.NET Core;CSharp;Web</PackageTags>
       <PackageLicenseExpression>MIT</PackageLicenseExpression>
       <PackageProjectUrl>https://github.com/jnprr/blazor-breadcrumb-navigation</PackageProjectUrl>
+	  <PackageIcon>icon.png</PackageIcon>
       <RepositoryType>git</RepositoryType>
       <RepositoryUrl>https://github.com/jnprr/blazor-breadcrumb-navigation</RepositoryUrl>
 		  	
