@@ -1,10 +1,10 @@
-﻿using Juniperr.Blazor.BreadcrumbNavigation.Services;
+﻿using Super.Blazor.BreadcrumbNavigation.Services;
 using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Juniperr.Blazor.BreadcrumbNavigation
+namespace Super.Blazor.BreadcrumbNavigation
 {
     public sealed partial class BreadcrumbNavigation : IDisposable
     {

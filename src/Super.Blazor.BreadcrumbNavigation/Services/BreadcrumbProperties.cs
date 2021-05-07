@@ -1,4 +1,4 @@
-﻿namespace Juniperr.Blazor.BreadcrumbNavigation.Services
+﻿namespace Super.Blazor.BreadcrumbNavigation.Services
 {
     class BreadcrumbProperties
     {

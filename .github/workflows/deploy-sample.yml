@@ -9,7 +9,7 @@ on:
       - master
 
 env:
-    PROJECT_NAME: Juniperr.Blazor.BreadcrumbNavigation
+    PROJECT_NAME: Super.Blazor.BreadcrumbNavigation
 
 jobs:
   build:

@@ -13,13 +13,13 @@
       <SymbolPackageFormat>snupkg</SymbolPackageFormat>
 
       <!-- NuGet settings -->
-      <PackageId>Juniperr.Blazor.BreadcrumbNavigation</PackageId>
+      <PackageId>Super.Blazor.BreadcrumbNavigation</PackageId>
       <PackageTags>Blazor;Razor;Components;Breadcrumb;Breadcrumbs;Breadcrumb Navigation;ASP.NET Core;CSharp;Web</PackageTags>
       <PackageLicenseExpression>MIT</PackageLicenseExpression>
-      <PackageProjectUrl>https://github.com/jnprr/blazor-breadcrumb-navigation</PackageProjectUrl>
+      <PackageProjectUrl>https://github.com/cschulzsuper/blazor-breadcrumb-navigation</PackageProjectUrl>
 	  <PackageIcon>icon.png</PackageIcon>
       <RepositoryType>git</RepositoryType>
-      <RepositoryUrl>https://github.com/jnprr/blazor-breadcrumb-navigation</RepositoryUrl>
+      <RepositoryUrl>https://github.com/cschulzsuper/blazor-breadcrumb-navigation</RepositoryUrl>
 		  	
   </PropertyGroup>
   
@@ -28,16 +28,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.5" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Extensions\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
   <ItemGroup>
-	<None Include="icon.png" Pack="true" PackagePath="\" />
+    <None Include="icon.png" Pack="true" PackagePath="\" />
   </ItemGroup>
 
 </Project>

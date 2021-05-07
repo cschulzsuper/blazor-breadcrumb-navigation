@@ -1,4 +1,4 @@
-﻿using Juniperr.Blazor.BreadcrumbNavigation.Services;
+﻿using Super.Blazor.BreadcrumbNavigation.Services;
 using Microsoft.AspNetCore.Components;
 using System;
 using System.Threading.Tasks;

@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Juniperr.Blazor.BreadcrumbNavigation.Services
+namespace Super.Blazor.BreadcrumbNavigation.Services
 {
     class BreadcrumbService : IBreadcrumbService
     {

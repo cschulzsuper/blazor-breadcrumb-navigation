@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Components.Routing;
 using System.Threading.Tasks;
 
-namespace Juniperr.Blazor.BreadcrumbNavigation.Services
+namespace Super.Blazor.BreadcrumbNavigation.Services
 {
     public abstract class Breadcrumb : IComponent
     {
