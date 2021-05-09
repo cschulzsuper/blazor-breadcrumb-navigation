@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Super.Blazor.BreadcrumbNavigation.Services
+namespace Supercode.Blazor.BreadcrumbNavigation.Services
 {
     public interface IBreadcrumbService
     {

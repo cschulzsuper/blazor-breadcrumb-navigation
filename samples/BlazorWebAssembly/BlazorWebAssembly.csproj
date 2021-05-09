@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Super.Blazor.BreadcrumbNavigation\Super.Blazor.BreadcrumbNavigation.csproj" />
+    <ProjectReference Include="..\..\src\Supercode.Blazor.BreadcrumbNavigation\Supercode.Blazor.BreadcrumbNavigation.csproj" />
   </ItemGroup>
 
 </Project>

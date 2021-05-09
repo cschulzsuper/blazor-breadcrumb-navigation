@@ -1,12 +1,12 @@
-# Juniper Blazor Breadcrumb Navigation
+# Blazor Breadcrumb Navigation
 A simple breadcrumb navigation component for your Blazor applications.
 
-[![Build](https://img.shields.io/github/workflow/status/jnprr/blazor-breadcrumb-navigation/Deploy%20Master)](https://github.com/jnprr/blazor-breadcrumb-navigation/actions?query=workflow%3A"Deploy+Master")
-[![Nuget](https://img.shields.io/github/v/release/jnprr/blazor-breadcrumb-navigation?sort=semver)](https://github.com/jnprr/blazor-breadcrumb-navigation/packages/)
+[![Build](https://img.shields.io/github/workflow/status/cschulzsuper/blazor-breadcrumb-navigation/Deploy%20Master)](https://github.com/cschulzsuper/blazor-breadcrumb-navigation/actions?query=workflow%3A"Deploy+Master")
+[![Nuget](https://img.shields.io/github/v/release/cschulzsuper/blazor-breadcrumb-navigation?sort=semver)](https://github.com/cschulzsuper/blazor-breadcrumb-navigation/packages/)
 
 ## Getting Started
 Once the first release is ready it will be available on [Nuget](https://www.nuget.org/).  
-You can download a preview version [here](https://github.com/jnprr/blazor-breadcrumb-navigation/packages/).
+You can download a preview version [here](https://github.com/cschulzsuper/blazor-breadcrumb-navigation/packages/).
 
 ## Usage
 
@@ -15,8 +15,8 @@ You can download a preview version [here](https://github.com/jnprr/blazor-breadc
 Add the following lines to your *_Imports.razor*.
 
 ```razor
-@using Juniperr.Blazor.BreadcrumbNavigation
-@using Juniperr.Blazor.BreadcrumbNavigation.Services
+@using Supercode.Blazor.BreadcrumbNavigation
+@using Supercode.Blazor.BreadcrumbNavigation.Services
 ```
 
 ### Add the CascadingBreadcrumbService

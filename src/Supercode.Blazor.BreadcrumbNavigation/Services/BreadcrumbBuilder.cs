@@ -1,4 +1,4 @@
-﻿namespace Super.Blazor.BreadcrumbNavigation.Services
+﻿namespace Supercode.Blazor.BreadcrumbNavigation.Services
 {
     public class BreadcrumbBuilder
     {

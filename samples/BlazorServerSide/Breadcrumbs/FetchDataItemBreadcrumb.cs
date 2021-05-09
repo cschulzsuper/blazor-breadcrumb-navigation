@@ -1,4 +1,4 @@
-﻿using Super.Blazor.BreadcrumbNavigation.Services;
+﻿using Supercode.Blazor.BreadcrumbNavigation.Services;
 using Microsoft.AspNetCore.Components;
 using System;
 using System.Threading.Tasks;

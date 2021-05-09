@@ -13,7 +13,7 @@
       <SymbolPackageFormat>snupkg</SymbolPackageFormat>
 
       <!-- NuGet settings -->
-      <PackageId>Super.Blazor.BreadcrumbNavigation</PackageId>
+      <PackageId>Supercode.Blazor.BreadcrumbNavigation</PackageId>
       <PackageTags>Blazor;Razor;Components;Breadcrumb;Breadcrumbs;Breadcrumb Navigation;ASP.NET Core;CSharp;Web</PackageTags>
       <PackageLicenseExpression>MIT</PackageLicenseExpression>
       <PackageProjectUrl>https://github.com/cschulzsuper/blazor-breadcrumb-navigation</PackageProjectUrl>

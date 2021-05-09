@@ -1,4 +1,4 @@
-﻿using Super.Blazor.BreadcrumbNavigation.Services;
+﻿using Supercode.Blazor.BreadcrumbNavigation.Services;
 using System.Threading.Tasks;
 
 namespace BlazorServerSide.Breadcrumbs
