@@ -5,7 +5,7 @@ on:
     types: [ published ]
 
 env:
-    PROJECT_NAME: Super.Blazor.BreadcrumbNavigation
+    PROJECT_NAME: Supercode.Blazor.BreadcrumbNavigation
     GITHUB_FEED: https://nuget.pkg.github.com/cschulzsuper/
     NUGET_FEED: https://api.nuget.org/v3/index.json
     PACKAGE_VERSION: ${{ github.event.release.tag_name }}

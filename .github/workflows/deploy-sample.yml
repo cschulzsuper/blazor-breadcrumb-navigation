@@ -9,7 +9,7 @@ on:
       - master
 
 env:
-    PROJECT_NAME: Super.Blazor.BreadcrumbNavigation
+    PROJECT_NAME: Supercode.Blazor.BreadcrumbNavigation
 
 jobs:
   build:
