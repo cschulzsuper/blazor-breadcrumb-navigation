@@ -4,9 +4,20 @@
 @using BlazorServerSide.Data
 @inject WeatherForecastService ForecastService
 
-<h1>Weather forecast</h1>
+<h1>Fetch data</h1>
 
-<p>This component demonstrates fetching data from a service.</p>
+<p>This page demonstrates the usage of text only breadcrumbs.</p>
+
+<pre class="border rounded bg-light p-3">
+public override Task ConfigureAsync(IBreadcrumbProperties builder)
+{
+    var date = Date ?? DateTime.Today;
+    builder.Text(date.ToShortDateString());
+    return Task.CompletedTask;
+}
+</pre>
+
+<p>Click on a date below, to see how the text only breadcrumb is rendered at the top.</p>
 
 @if (forecasts == null)
 {
@@ -67,13 +78,12 @@ else
     protected override void OnAfterRender(bool _)
     {
         BreadcrumbService
-            .Clear()
             .Set<IndexBreadcrumb>()
             .Set<FetchDataBreadcrumb>();
 
         if (Date.HasValue)
         {
-            var parameters = new Dictionary<string, object> {["date"] = Date};
+            var parameters = new Dictionary<string, object> { ["date"] = Date };
             BreadcrumbService.Set<FetchDataItemBreadcrumb>(parameters);
         }
     }

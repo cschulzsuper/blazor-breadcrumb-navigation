@@ -10,12 +10,11 @@ namespace BlazorWebAssembly.Breadcrumbs
         [Parameter]
         public DateTime? Date { get; set; }
 
-        public override Task ConfigureAsync(BreadcrumbBuilder builder)
+        public override Task ConfigureAsync(IBreadcrumbProperties builder)
         {
             var date = Date ?? DateTime.Today;
 
-            builder.SetUrl($"fetch-data/{date:yyyy-MM-dd}");
-            builder.SetTitle(date.ToShortDateString());
+            builder.Text(date.ToShortDateString());
 
             return Task.CompletedTask;
         }

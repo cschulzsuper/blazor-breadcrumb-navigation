@@ -13,14 +13,14 @@ namespace Supercode.Blazor.BreadcrumbNavigation.Services
         public IBreadcrumbService Clear();
 
         public IBreadcrumbService Set<TBreadcrumb>()
-            where TBreadcrumb : Breadcrumb
+            where TBreadcrumb : IComponent
             => Set<TBreadcrumb>(new Dictionary<string, object>());
 
         public IBreadcrumbService Set<TBreadcrumb>(ParameterView parameters)
-            where TBreadcrumb : Breadcrumb
+            where TBreadcrumb : IComponent
             => Set<TBreadcrumb>(parameters.ToDictionary());
 
         IBreadcrumbService Set<TBreadcrumb>(IReadOnlyDictionary<string, object> parameters)
-            where TBreadcrumb : Breadcrumb;
+            where TBreadcrumb : IComponent;
     }
 }

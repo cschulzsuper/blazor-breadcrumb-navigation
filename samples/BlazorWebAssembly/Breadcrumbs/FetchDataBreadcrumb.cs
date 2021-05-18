@@ -5,10 +5,9 @@ namespace BlazorWebAssembly.Breadcrumbs
 {
     public class FetchDataBreadcrumb : Breadcrumb
     {
-        public override Task ConfigureAsync(BreadcrumbBuilder builder)
+        public override Task ConfigureAsync(IBreadcrumbProperties builder)
         {
-            builder.SetUrl("fetch-data");
-            builder.SetTitle("Fetch data");
+            builder.Link("Fetch data", "fetch-data");
 
             return Task.CompletedTask;
         }

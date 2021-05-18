@@ -5,10 +5,9 @@ namespace BlazorServerSide.Breadcrumbs
 {
     public class CounterBreadcrumb : Breadcrumb
     {
-        public override Task ConfigureAsync(BreadcrumbBuilder builder)
+        public override Task ConfigureAsync(IBreadcrumbProperties builder)
         {
-            builder.SetUrl("counter");
-            builder.SetTitle("Counter");
+            builder.Link("Counter", "counter");
 
             return Task.CompletedTask;
         }

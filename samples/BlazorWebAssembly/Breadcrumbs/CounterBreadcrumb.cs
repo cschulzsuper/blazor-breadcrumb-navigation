@@ -1,14 +1,17 @@
-﻿using Supercode.Blazor.BreadcrumbNavigation.Services;
+﻿using Microsoft.AspNetCore.Components;
+using Supercode.Blazor.BreadcrumbNavigation.Services;
 using System.Threading.Tasks;
 
 namespace BlazorWebAssembly.Breadcrumbs
 {
     public class CounterBreadcrumb : Breadcrumb
     {
-        public override Task ConfigureAsync(BreadcrumbBuilder builder)
+        [Parameter]
+        public int Counter { get; set; }
+
+        public override Task ConfigureAsync(IBreadcrumbProperties builder)
         {
-            builder.SetUrl("counter");
-            builder.SetTitle("Counter");
+            builder.Link($"Counter {Counter}", "counter");
 
             return Task.CompletedTask;
         }

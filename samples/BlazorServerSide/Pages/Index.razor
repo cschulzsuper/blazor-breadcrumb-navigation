@@ -2,7 +2,22 @@
 
 <h1>Hello, world!</h1>
 
-Welcome to your new app.
+<p>The index page shows how the simples from of a breadcrumb is rendered, after it has been added to a page.</p>
+
+<pre class="border rounded bg-light p-3">
+protected override void OnAfterRender(bool _)
+{
+    BreadcrumbService
+        .Set&lt;IndexBreadcrumb&gt;();
+}
+</pre>
+
+<p>The <code>IndexBreadcrumb</code> is defined as <code>RootBreadcrumb</code> and will therefore always clear the current trail.</p>
+
+<p class="border-warning">
+    Please bear in mind that this demo does not show the status of the current release.
+    The demo can use features which have not been released.
+</p>
 
 @code {
 
@@ -12,7 +27,6 @@ Welcome to your new app.
     protected override void OnAfterRender(bool _)
     {
         BreadcrumbService
-            .Clear()
             .Set<IndexBreadcrumb>();
     }
 }

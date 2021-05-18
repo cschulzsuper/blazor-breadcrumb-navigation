@@ -3,38 +3,49 @@
 
 @inject HttpClient Http
 
-<h1>Weather forecast</h1>
+<h1>Fetch data</h1>
 
-<p>This component demonstrates fetching data from the server.</p>
+<p>This page demonstrates the usage of text only breadcrumbs.</p>
+
+<pre class="border rounded bg-light p-3">
+public override Task ConfigureAsync(IBreadcrumbProperties builder)
+{
+    var date = Date ?? DateTime.Today;
+    builder.Text(date.ToShortDateString());
+    return Task.CompletedTask;
+}
+</pre>
+
+<p>Click on a date below, to see how the text only breadcrumb is rendered at the top.</p>
 
 @if (forecasts == null)
 {
-    <p><em>Loading...</em></p>
+<p><em>Loading...</em></p>
 }
 else
 {
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Temp. (C)</th>
-                <th>Temp. (F)</th>
-                <th>Summary</th>
+<table class="table">
+<thead>
+<tr>
+<th>Date</th>
+<th>Temp. (C)</th>
+<th>Temp. (F)</th>
+<th>Summary</th>
             </tr>
         </thead>
-        <tbody>
+<tbody>
             @foreach (var forecast in forecasts)
             {
-                <tr>
-                    <td>
-                        <NavLink class="nav-link" 
-                                 href=@($"fetch-data/{forecast.Date:yyyy-MM-dd}")>
+<tr>
+<td>
+<NavLink class="nav-link"
+         href=@($"fetch-data/{forecast.Date:yyyy-MM-dd}")>
                             @forecast.Date.ToShortDateString()
                         </NavLink>
                     </td>
-                    <td>@forecast.TemperatureC</td>
-                    <td>@forecast.TemperatureF</td>
-                    <td>@forecast.Summary</td>
+<td>@forecast.TemperatureC</td>
+<td>@forecast.TemperatureF</td>
+<td>@forecast.Summary</td>
                 </tr>
             }
         </tbody>
@@ -66,13 +77,12 @@ else
     protected override void OnAfterRender(bool _)
     {
         BreadcrumbService
-            .Clear()
             .Set<IndexBreadcrumb>()
             .Set<FetchDataBreadcrumb>();
 
         if (Date.HasValue)
         {
-            var parameters = new Dictionary<string, object> {["date"] = Date};
+            var parameters = new Dictionary<string, object> { ["date"] = Date };
             BreadcrumbService.Set<FetchDataItemBreadcrumb>(parameters);
         }
     }

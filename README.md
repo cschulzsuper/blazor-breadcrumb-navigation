@@ -1,4 +1,4 @@
-# Blazor Breadcrumb Navigation
+# Breadcrumb Navigation
 A simple breadcrumb navigation component for your Blazor applications.
 
 [![Build](https://img.shields.io/github/workflow/status/cschulzsuper/blazor-breadcrumb-navigation/Deploy%20Master)](https://github.com/cschulzsuper/blazor-breadcrumb-navigation/actions?query=workflow%3A"Deploy+Master")
@@ -7,6 +7,11 @@ A simple breadcrumb navigation component for your Blazor applications.
 ## Getting Started
 Once the first release is ready it will be available on [Nuget](https://www.nuget.org/).  
 You can download a preview version [here](https://github.com/cschulzsuper/blazor-breadcrumb-navigation/packages/).
+
+## Demo
+
+A demo version is aviable on [GitHub Pages](https://cschulzsuper.github.io/blazor-breadcrumb-navigation).
+:warning: The demo includes changes which are not yet released.
 
 ## Usage
 
@@ -51,6 +56,9 @@ public class IndexBreadcrumb : Breadcrumb
         builder.SetUrl(string.Empty);
         builder.SetTitle("Home");
 
+        // With the next release this will be changed to
+        // builder.Link("Home",string.Empty);
+
         return Task.CompletedTask;
     }
 }
@@ -93,3 +101,4 @@ Add the BreadcrumbNavigation component in your *MainLayout*.
 
 ## Acknowledgments
 - A big resource was [@chrissainty](https://github.com/chrissainty)'s [Blazored Modal](https://github.com/Blazored/Modal) project, where I took most of my inspiration from.
+- My buddy [@sschwarzrock](https://github.com/sschwarzrock) provided the [geranium leaf](https://github.com/cschulzsuper/blazor-breadcrumb-navigation/blob/master/src/Supercode.Blazor.BreadcrumbNavigation/icon.png) icon for the package.

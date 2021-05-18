@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Components;
 using System;
+using System.Reflection;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Supercode.Blazor.BreadcrumbNavigation.Services
 {
@@ -17,7 +19,29 @@ namespace Supercode.Blazor.BreadcrumbNavigation.Services
         }
 
         public IBreadcrumbService Set<TBreadcrumb>(IReadOnlyDictionary<string, object> parameters)
-            where TBreadcrumb : Breadcrumb
+            where TBreadcrumb : IComponent
+        {
+            ClearIfRootBreadcrumb<TBreadcrumb>();
+            AddComponent<TBreadcrumb>(parameters);
+
+            return this;
+        }
+
+        private void ClearIfRootBreadcrumb<TBreadcrumb>()
+            where TBreadcrumb : IComponent
+        {
+            var isRootBreadcrumb = typeof(TBreadcrumb)
+                .GetCustomAttributes<RootBreadcrumbAttribute>()
+                .Any();
+
+            if(isRootBreadcrumb)
+            {
+                Clear();
+            }
+        }
+
+        private void AddComponent<TBreadcrumb>(IReadOnlyDictionary<string, object> parameters)
+            where TBreadcrumb : IComponent
         {
             var renderFragment = new RenderFragment(builder =>
             {
@@ -33,7 +57,6 @@ namespace Supercode.Blazor.BreadcrumbNavigation.Services
             });
 
             Added?.Invoke(renderFragment);
-            return this;
         }
     }
 }
