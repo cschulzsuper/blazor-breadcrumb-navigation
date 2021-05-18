@@ -2,9 +2,40 @@
 
 <h1>Counter</h1>
 
-<p>Current count: @currentCount</p>
+<p>Thanks to the underlying logic of the <code>NavLink</code> component, the active breadcrumb is highlighted accordingly.</p>
 
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<p><button class="btn btn-primary" @onclick="IncrementCount">Click me</button></p>
+
+<p>Additionally this page shows one possibility how parameters can be passed to a breadcrumb.</p>
+
+<pre class="border rounded bg-light p-3">
+protected override void OnAfterRender(bool _)
+{
+    BreadcrumbService
+        .Set&lt;IndexBreadcrumb&gt;()
+        .Set&lt;CounterBreadcrumb&gt;(new Dictionary&lt;string, object&gt;
+        {
+            ["counter"] = currentCount
+        });
+}
+</pre>
+
+<p>A <code>Breadcrumb</code> implements <code>IComponent</code> which means that parameters can be injection via <code>ParameterAttribute</code>.</p>
+
+<pre class="border rounded bg-light p-3">
+public class CounterBreadcrumb : Breadcrumb
+{
+    [Parameter]
+    public int Counter { get; set; }
+
+    public override Task ConfigureAsync(IBreadcrumbProperties builder)
+    {
+        builder.Link($"Counter {Counter}", "counter");
+
+        return Task.CompletedTask;
+    }
+}
+</pre>
 
 @code {
 
@@ -15,7 +46,11 @@
     {
         BreadcrumbService
             .Set<IndexBreadcrumb>()
-            .Set<CounterBreadcrumb>();
+            .Set<CounterBreadcrumb>(new Dictionary<string, object>
+            {
+                ["counter"] = currentCount
+            }
+            );
     }
 
     private int currentCount = 0;
@@ -23,5 +58,6 @@
     private void IncrementCount()
     {
         currentCount++;
+        StateHasChanged();
     }
 }
