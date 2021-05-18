@@ -5,8 +5,7 @@ A simple breadcrumb navigation component for your Blazor applications.
 [![Nuget](https://img.shields.io/github/v/release/cschulzsuper/blazor-breadcrumb-navigation?sort=semver)](https://github.com/cschulzsuper/blazor-breadcrumb-navigation/packages/)
 
 ## Getting Started
-Once the first release is ready it will be available on [Nuget](https://www.nuget.org/).  
-You can download a preview version [here](https://github.com/cschulzsuper/blazor-breadcrumb-navigation/packages/).
+The package is available on [Nuget](https://www.nuget.org/packages/Supercode.Blazor.BreadcrumbNavigation).  
 
 ## Demo
 
