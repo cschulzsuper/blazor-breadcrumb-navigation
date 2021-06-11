@@ -18,7 +18,7 @@ namespace BlazorWebAssembly.Breadcrumbs
             var date = Date ?? DateTime.Today;
 
             builder.Text(date.ToShortDateString());
-            builder.RightIcon("oi oi-x", () => NavigationManager.NavigateTo("/fetch-data"));
+            builder.RightIcon("oi oi-x", () => NavigationManager.NavigateTo($"{NavigationManager.BaseUri}fetch-data"));
 
             return Task.CompletedTask;
         }
