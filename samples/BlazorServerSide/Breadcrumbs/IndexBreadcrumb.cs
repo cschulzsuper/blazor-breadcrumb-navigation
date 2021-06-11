@@ -7,6 +7,7 @@ namespace BlazorServerSide.Breadcrumbs
     {
         public override Task ConfigureAsync(IBreadcrumbProperties builder)
         {
+            builder.LeftIcon("oi oi-home");
             builder.Link("Home", string.Empty);
 
             return Task.CompletedTask;

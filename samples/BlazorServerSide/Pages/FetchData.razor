@@ -6,13 +6,21 @@
 
 <h1>Fetch data</h1>
 
-<p>This page demonstrates the usage of text only breadcrumbs.</p>
+<div class="alert alert-warning" role="alert">
+    Please bear in mind that this demo does not show the status of the current release.
+    The demo can use features which have not been released.
+</div>
+
+<p>This page demonstrates the usage of text only breadcrumbs, with an additional icon.</p>
 
 <pre class="border rounded bg-light p-3">
 public override Task ConfigureAsync(IBreadcrumbProperties builder)
 {
     var date = Date ?? DateTime.Today;
+
     builder.Text(date.ToShortDateString());
+    builder.RightIcon("oi oi-x", () => NavigationManager.NavigateTo("/fetch-data"));
+
     return Task.CompletedTask;
 }
 </pre>

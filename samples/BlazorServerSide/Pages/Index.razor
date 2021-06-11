@@ -2,6 +2,11 @@
 
 <h1>Hello, world!</h1>
 
+<div class="alert alert-warning" role="alert">
+    Please bear in mind that this demo does not show the status of the current release.
+    The demo can use features which have not been released.
+</div>
+
 <p>The index page shows, how the simples from of a breadcrumb is rendered after it has been added to a page.</p>
 
 <pre class="border rounded bg-light p-3">
@@ -12,24 +17,23 @@ protected override void OnAfterRender(bool _)
 }
 </pre>
 
-<p>The <code>IndexBreadcrumb</code> is defined as <code>RootBreadcrumb</code> and will therefore always clear the current trail.</p>
+<p>
+    The <code>IndexBreadcrumb</code> is defined as <code>RootBreadcrumb</code> and will therefore always clear the current trail.<br />
+    The breadcrumb is also defined with an icon. The string given to the <code>LeftIcon</code> is a normal css class.
+</p>
 
 <pre class="border rounded bg-light p-3">
 public class IndexBreadcrumb : RootBreadcrumb
 {
     public override Task ConfigureAsync(IBreadcrumbProperties builder)
     {
+        builder.LeftIcon("oi oi-home");
         builder.Link("Home", string.Empty);
 
         return Task.CompletedTask;
     }
 }
 </pre>
-
-<div class="alert alert-warning" role="alert">
-    Please bear in mind that this demo does not show the status of the current release.
-    The demo can use features which have not been released.
-</div>
 
 @code {
 

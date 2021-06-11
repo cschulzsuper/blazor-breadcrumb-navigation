@@ -10,11 +10,15 @@ namespace BlazorServerSide.Breadcrumbs
         [Parameter]
         public DateTime? Date { get; set; }
 
+        [Inject]
+        public NavigationManager NavigationManager { get; set; }
+
         public override Task ConfigureAsync(IBreadcrumbProperties builder)
         {
             var date = Date ?? DateTime.Today;
 
             builder.Text(date.ToShortDateString());
+            builder.RightIcon("oi oi-x", () => NavigationManager.NavigateTo("/fetch-data"));
 
             return Task.CompletedTask;
         }
