@@ -55,10 +55,6 @@ public class IndexBreadcrumb : Breadcrumb
         builder.SetUrl(string.Empty);
         builder.SetTitle("Home");
 
-        // With the next release this will be changed to
-        // builder.Link("Home",string.Empty);
-        // builder.LeftIcon("oi oi-home");
-
         return Task.CompletedTask;
     }
 }

@@ -1,7 +1,7 @@
-﻿using Supercode.Blazor.BreadcrumbNavigation.Services;
-using Microsoft.AspNetCore.Components;
-using System;
+﻿using System;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Components;
+using Supercode.Blazor.BreadcrumbNavigation.Services;
 
 namespace BlazorServerSide.Breadcrumbs
 {
@@ -13,14 +13,16 @@ namespace BlazorServerSide.Breadcrumbs
         [Inject]
         public NavigationManager NavigationManager { get; set; }
 
-        public override Task ConfigureAsync(IBreadcrumbProperties builder)
+        public override async Task ConfigureAsync(BreadcrumbBuilder builder)
         {
+            builder.Text("Loading...");
+
+            await Task.Delay(1000);
+
             var date = Date ?? DateTime.Today;
 
             builder.Text(date.ToShortDateString());
             builder.RightIcon("oi oi-x", () => NavigationManager.NavigateTo($"{NavigationManager.BaseUri}fetch-data"));
-
-            return Task.CompletedTask;
         }
     }
 }

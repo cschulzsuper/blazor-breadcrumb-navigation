@@ -9,11 +9,7 @@ namespace BlazorWebAssembly.Breadcrumbs
         [Parameter]
         public int Counter { get; set; }
 
-        public override Task ConfigureAsync(IBreadcrumbProperties builder)
-        {
-            builder.Link($"Counter {Counter}", "counter");
-
-            return Task.CompletedTask;
-        }
+        public override void Configure(BreadcrumbBuilder builder)
+            => builder.Link($"Counter {Counter}", "counter");
     }
 }

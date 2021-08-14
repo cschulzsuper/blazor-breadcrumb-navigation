@@ -13,15 +13,19 @@
 
 <p>This page demonstrates the usage of text only breadcrumbs, with an additional icon.</p>
 
+<p>You can also see the usage of an async breadcrumb. A placeholder is used before a heavy task has finished.</p>
+
 <pre class="border rounded bg-light p-3">
-public override Task ConfigureAsync(IBreadcrumbProperties builder)
+public override async Task ConfigureAsync(BreadcrumbBuilder builder)
 {
+    builder.Text("Loading...");
+
+    await Task.Delay(1000);
+
     var date = Date ?? DateTime.Today;
 
     builder.Text(date.ToShortDateString());
-    builder.RightIcon("oi oi-x", () => NavigationManager.NavigateTo("/fetch-data"));
-
-    return Task.CompletedTask;
+    builder.RightIcon("oi oi-x", () => NavigationManager.NavigateTo($"{NavigationManager.BaseUri}fetch-data"));
 }
 </pre>
 

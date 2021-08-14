@@ -7,40 +7,33 @@ using System.Threading.Tasks;
 
 namespace Supercode.Blazor.BreadcrumbNavigation.Services
 {
-    public abstract class Breadcrumb : IComponent
+    public abstract class Breadcrumb : ComponentBase
     {
-        public BreadcrumbProperties _breadcrumbProperties = new();
+        private readonly BreadcrumbBuilder _breadcrumbBuilder = new();
 
-        private readonly RenderFragment _renderFragment;
-
-        private RenderHandle _renderHandle;
-
-        protected Breadcrumb()
+        protected override void BuildRenderTree(RenderTreeBuilder builder)
         {
-            _renderFragment = builder =>
+            if (_breadcrumbBuilder.Url == null)
             {
-                if (_breadcrumbProperties.Url == null)
-                {
-                    RenderFragementText(builder);
-                }
-                else
-                {
-                    RenderFragementNavLink(builder);
-                }
-            };
+                RenderFragmentText(builder);
+            }
+            else
+            {
+                RenderFragmentNavLink(builder);
+            }
         }
 
-        private void RenderFragementNavLink(RenderTreeBuilder builder)
+        private void RenderFragmentNavLink(RenderTreeBuilder builder)
         {
             builder.OpenElement(0, "span");
 
             RenderLeftIcon(builder);
 
             builder.OpenComponent<NavLink>(0);
-            builder.AddAttribute(1, "href", _breadcrumbProperties.Url);
+            builder.AddAttribute(1, "href", _breadcrumbBuilder.Url);
             builder.AddAttribute(2, nameof(NavLink.Match), NavLinkMatch.All);
             builder.AddAttribute(3, nameof(NavLink.ChildContent),
-                (RenderFragment)(innerBuilder => innerBuilder.AddContent(4, _breadcrumbProperties.Title)));
+                (RenderFragment)(innerBuilder => innerBuilder.AddContent(4, _breadcrumbBuilder.Title)));
             builder.CloseComponent();
 
             RenderRightIcon(builder);
@@ -48,12 +41,13 @@ namespace Supercode.Blazor.BreadcrumbNavigation.Services
             builder.CloseComponent();
         }
 
-        private void RenderFragementText(RenderTreeBuilder builder)
+        private void RenderFragmentText(RenderTreeBuilder builder)
         {
             builder.OpenElement(0, "span");
 
             RenderLeftIcon(builder);
-            builder.AddContent(1 , _breadcrumbProperties.Title);
+
+            builder.AddContent(1 , _breadcrumbBuilder.Title);
 
             RenderRightIcon(builder);
 
@@ -62,13 +56,13 @@ namespace Supercode.Blazor.BreadcrumbNavigation.Services
 
         private void RenderLeftIcon(RenderTreeBuilder builder)
             => RenderIcon( builder,
-                _breadcrumbProperties.LeftIcon,
-                _breadcrumbProperties.LeftAction);
+                _breadcrumbBuilder.LeftIcon,
+                _breadcrumbBuilder.LeftAction);
 
         private void RenderRightIcon( RenderTreeBuilder builder)
             => RenderIcon(builder, 
-                _breadcrumbProperties.RightIcon, 
-                _breadcrumbProperties.RightAction);
+                _breadcrumbBuilder.RightIcon, 
+                _breadcrumbBuilder.RightAction);
 
         private void RenderIcon(RenderTreeBuilder builder, string? icon, Action? action)
         {
@@ -86,16 +80,17 @@ namespace Supercode.Blazor.BreadcrumbNavigation.Services
             }
         }
 
-        public void Attach(RenderHandle renderHandle)
-            => _renderHandle = renderHandle;
+        protected override void OnParametersSet()
+            => Configure(_breadcrumbBuilder);
 
-        public async Task SetParametersAsync(ParameterView parameters)
+        protected override Task OnParametersSetAsync()
+            => ConfigureAsync(_breadcrumbBuilder);
+
+        public virtual Task ConfigureAsync(BreadcrumbBuilder builder)
+            => Task.CompletedTask;
+
+        public virtual void Configure(BreadcrumbBuilder builder)
         {
-            parameters.SetParameterProperties(this);
-            await ConfigureAsync(_breadcrumbProperties);
-            _renderHandle.Render(_renderFragment);
         }
-
-        public abstract Task ConfigureAsync(IBreadcrumbProperties breadcrumbProperties);
     }
 }
