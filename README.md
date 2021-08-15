@@ -10,7 +10,7 @@ The package is available on [Nuget](https://www.nuget.org/packages/Supercode.Bla
 ## Demo
 
 A demo version is aviable on [GitHub Pages](https://cschulzsuper.github.io/blazor-breadcrumb-navigation).
-:warning: The demo includes changes which are not yet released.
+:warning: The demo can include changes which have not yet been released.
 
 ## Usage
 
@@ -44,26 +44,21 @@ Add the `<CascadingBreadcrumbService />` as component to your *App.razor*.
 
 ### Create a Breadcrumb
 
-Add a Breadcrumb Component to your project by usage of the `Breadcrumb` base class and the implementation of `ConfigureAsync`.  
-The *URL* and the *Title* of your Breadcrumb are set throught the given `BreadcrumbBuilder`.
+Add a breadcrumb component to your project by usage of the `RootBreadcrumb` or `Breadcrumb` base class and an implementation of `Configure`.  
+The *Link* of your breadcrumb is set throught the given `BreadcrumbBuilder`.
 
 ```csharp
-public class IndexBreadcrumb : Breadcrumb
+public class IndexBreadcrumb : RootBreadcrumb
 {
-    public override Task ConfigureAsync(BreadcrumbBuilder builder)
-    {
-        builder.SetUrl(string.Empty);
-        builder.SetTitle("Home");
-
-        return Task.CompletedTask;
-    }
+    public override void Configure(BreadcrumbBuilder builder)
+        => builder.Link("Home", string.Empty);
 }
 ```
 
 ### Set the created Breadcrumb on a Page
 
-In order to set a Breadcrumb you need to inject `IBreadcrumbService` as cascading parameter.  
-Set a Breadcrumb by calling `Set` with the type of your Breadcrumb and a position.
+In order to set a breadcrumb you need to inject `IBreadcrumbService` as cascading parameter.  
+Set a breadcrumb by calling `Set` with the type of your breadcrumb and a position.
 
 ```razor
 @code {
@@ -73,7 +68,6 @@ Set a Breadcrumb by calling `Set` with the type of your Breadcrumb and a positio
     protected override void OnAfterRender(bool _)
     {
         BreadcrumbService
-            .Clear()
             .Set<IndexBreadcrumb>();
     }
 }
