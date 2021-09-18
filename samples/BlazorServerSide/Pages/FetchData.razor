@@ -90,13 +90,17 @@ else
     protected override void OnAfterRender(bool _)
     {
         BreadcrumbService
-            .Set<IndexBreadcrumb>()
-            .Set<FetchDataBreadcrumb>();
+            .Set<IndexBreadcrumb>();
 
         if (Date.HasValue)
         {
             var parameters = new Dictionary<string, object> { ["date"] = Date };
+            BreadcrumbService.Set<FetchDataBreadcrumb>();
             BreadcrumbService.Set<FetchDataItemBreadcrumb>(parameters);
+        }
+        else
+        {
+            BreadcrumbService.Set<FetchDataBreadcrumbLast>();
         }
     }
 }

@@ -49,9 +49,8 @@ public class CounterBreadcrumb : Breadcrumb
             .Set<IndexBreadcrumb>()
             .Set<CounterBreadcrumb>(new Dictionary<string, object>
             {
-                ["counter"] = currentCount
-            }
-            );
+                ["counter"] = currentCount,
+            });
     }
 
     private int currentCount = 0;

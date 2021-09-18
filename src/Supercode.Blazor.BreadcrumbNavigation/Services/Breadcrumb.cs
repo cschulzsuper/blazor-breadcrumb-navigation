@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Components.Rendering;
 using Microsoft.AspNetCore.Components.Routing;
 using Microsoft.AspNetCore.Components.Web;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Supercode.Blazor.BreadcrumbNavigation.Services
@@ -29,11 +31,13 @@ namespace Supercode.Blazor.BreadcrumbNavigation.Services
 
             RenderLeftIcon(builder);
 
-            builder.OpenComponent<NavLink>(0);
-            builder.AddAttribute(1, "href", _breadcrumbBuilder.Url);
-            builder.AddAttribute(2, nameof(NavLink.Match), NavLinkMatch.All);
-            builder.AddAttribute(3, nameof(NavLink.ChildContent),
-                (RenderFragment)(innerBuilder => innerBuilder.AddContent(4, _breadcrumbBuilder.Title)));
+            builder.OpenComponent<NavLink>(1);
+            builder.AddAttribute(2, "href", _breadcrumbBuilder.Url);
+            builder.AddAttribute(3, nameof(NavLink.Match), NavLinkMatch.All);
+            builder.AddMultipleAttributes(4, _breadcrumbBuilder.Attributes);
+            builder.AddAttribute(5, nameof(NavLink.ChildContent),
+                (RenderFragment)(innerBuilder => innerBuilder.AddContent(6, _breadcrumbBuilder.Title)));
+
             builder.CloseComponent();
 
             RenderRightIcon(builder);
@@ -47,7 +51,12 @@ namespace Supercode.Blazor.BreadcrumbNavigation.Services
 
             RenderLeftIcon(builder);
 
-            builder.AddContent(1 , _breadcrumbBuilder.Title);
+            builder.OpenElement(1, "span");
+            builder.AddMultipleAttributes(2, _breadcrumbBuilder.Attributes?.ToList());
+
+            builder.AddContent(3 , _breadcrumbBuilder.Title);
+
+            builder.CloseComponent();
 
             RenderRightIcon(builder);
 
@@ -57,28 +66,34 @@ namespace Supercode.Blazor.BreadcrumbNavigation.Services
         private void RenderLeftIcon(RenderTreeBuilder builder)
             => RenderIcon( builder,
                 _breadcrumbBuilder.LeftIcon,
-                _breadcrumbBuilder.LeftAction);
+                _breadcrumbBuilder.LeftAction,
+                _breadcrumbBuilder.LeftAttributes);
 
         private void RenderRightIcon( RenderTreeBuilder builder)
             => RenderIcon(builder, 
                 _breadcrumbBuilder.RightIcon, 
-                _breadcrumbBuilder.RightAction);
+                _breadcrumbBuilder.RightAction,
+                _breadcrumbBuilder.RightAttributes);
 
-        private void RenderIcon(RenderTreeBuilder builder, string? icon, Action? action)
+        private void RenderIcon(RenderTreeBuilder builder, string? icon, Action? action, IEnumerable<KeyValuePair<string, object>>? attributes)
         {
             if (icon != null)
             {
                 builder.OpenRegion(0);
                 builder.OpenElement(1, action != null ? "button": "span");
-                builder.AddAttribute(2, "class", icon);
+                builder.AddAttribute(2, "class", $"icon {icon}");
+                builder.AddMultipleAttributes(3, attributes);
                 if (action != null)
                 {
-                    builder.AddAttribute(3, "onclick", EventCallback.Factory.Create<MouseEventArgs>(this, action));
+                    builder.AddAttribute(4, "onclick", EventCallback.Factory.Create<MouseEventArgs>(this, action));
                 }
                 builder.CloseElement();
                 builder.CloseRegion();
             }
         }
+
+        public override Task SetParametersAsync(ParameterView parameters)
+            => base.SetParametersAsync(parameters);
 
         protected override void OnParametersSet()
             => Configure(_breadcrumbBuilder);

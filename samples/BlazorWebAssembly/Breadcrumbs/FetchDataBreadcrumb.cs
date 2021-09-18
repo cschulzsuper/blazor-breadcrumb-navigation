@@ -1,5 +1,4 @@
 ﻿using Supercode.Blazor.BreadcrumbNavigation.Services;
-using System.Threading.Tasks;
 
 namespace BlazorWebAssembly.Breadcrumbs
 {

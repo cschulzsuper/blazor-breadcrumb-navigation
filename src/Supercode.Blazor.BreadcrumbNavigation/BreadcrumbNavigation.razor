@@ -1,6 +1,6 @@
 ﻿@if (_breadcrumbs.Any())
 {
-<ul class="@CssClass">
+<ul class="@CssClass" @attributes="AdditionalAttributes">
         @foreach (var breadcrumb in _breadcrumbs)
         {
             <li>
