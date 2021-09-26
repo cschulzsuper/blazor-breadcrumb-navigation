@@ -17,17 +17,25 @@ protected override void OnAfterRender(bool _)
 }
 </pre>
 
-<p>
-    The <code>IndexBreadcrumb</code> is defined as <code>RootBreadcrumb</code> and will therefore always clear the current trail.<br />
-    The breadcrumb is also defined with an icon. The string given to the <code>LeftIcon</code> is a css class.
-</p>
+<ul>
+    <li>
+        The <code>IndexBreadcrumbLast</code> is defined as <code>RootBreadcrumb</code> and will therefore always clear the current trail.
+    </li>
+    <li>
+        The breadcrumb is also defined with an icon. The string given to the <code>LeftIcon</code> is a css class.
+    </li>
+    <li>
+        The suffix <code>Last</code> is a convention of this example to define this breadcrumb as the last in the trail.
+    </li>
+</ul>
 
 <pre class="border rounded bg-light p-3">
-public class IndexBreadcrumb : RootBreadcrumb
+public class IndexBreadcrumbLast : RootBreadcrumb
 {
     public override void Configure(BreadcrumbBuilder builder)
         => builder.LeftIcon("oi oi-home");
-           builder.Link("Home", string.Empty);
+           builder.Link("Home", string.Empty,
+               new KeyValuePair&lt;string, object&gt;("aria-current", "page"));
 }
 </pre>
 
