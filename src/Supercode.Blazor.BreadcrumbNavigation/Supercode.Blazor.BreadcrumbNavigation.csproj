@@ -1,42 +1,46 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
-  <PropertyGroup>
-	  <TargetFramework>net5.0</TargetFramework>
-	  <Nullable>enable</Nullable>
-   
-      <Authors>Christian Schulz</Authors>
-      <Company></Company>
-      <Copyright>Copyright 2021 (c) Christian Schulz. All rights reserved.</Copyright>
-    
-      <Description>A simple breadcrumb navigation component for your Blazor applications.</Description>
-      <IncludeSymbols>true</IncludeSymbols>
-      <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+	<PropertyGroup>
+		<TargetFrameworks>net6.0;net5.0</TargetFrameworks>
+		<Nullable>enable</Nullable>
 
-      <!-- NuGet settings -->
-      <PackageId>Supercode.Blazor.BreadcrumbNavigation</PackageId>
-      <PackageTags>Blazor;Razor;Components;Breadcrumb;Breadcrumbs;Breadcrumb Navigation;ASP.NET Core;CSharp;Web</PackageTags>
-      <PackageLicenseExpression>MIT</PackageLicenseExpression>
-      <PackageProjectUrl>https://github.com/cschulzsuper/blazor-breadcrumb-navigation</PackageProjectUrl>
-	  <PackageIcon>icon.png</PackageIcon>
-      <RepositoryType>git</RepositoryType>
-      <RepositoryUrl>https://github.com/cschulzsuper/blazor-breadcrumb-navigation</RepositoryUrl>
-		  	
-  </PropertyGroup>
-  
-  <ItemGroup>
-    <SupportedPlatform Include="browser" />
-  </ItemGroup>
+		<Authors>Christian Schulz</Authors>
+		<Company></Company>
+		<Copyright>Copyright 2021 (c) Christian Schulz. All rights reserved.</Copyright>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.6" />
-  </ItemGroup>
+		<Description>A simple breadcrumb navigation component for your Blazor applications.</Description>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\" />
-  </ItemGroup>
+		<!-- NuGet settings -->
+		<PackageId>Supercode.Blazor.BreadcrumbNavigation</PackageId>
+		<PackageTags>Blazor;Razor;Components;Breadcrumb;Breadcrumbs;Breadcrumb Navigation;ASP.NET Core;CSharp;Web</PackageTags>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/cschulzsuper/blazor-breadcrumb-navigation</PackageProjectUrl>
+		<PackageIcon>icon.png</PackageIcon>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/cschulzsuper/blazor-breadcrumb-navigation</RepositoryUrl>
 
-  <ItemGroup>
-    <None Include="icon.png" Pack="true" PackagePath="\" />
-  </ItemGroup>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<SupportedPlatform Include="browser" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net5.0'">
+		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.6"/>
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
+		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.0"/>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="wwwroot\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="icon.png" Pack="true" PackagePath="\" />
+	</ItemGroup>
 
 </Project>

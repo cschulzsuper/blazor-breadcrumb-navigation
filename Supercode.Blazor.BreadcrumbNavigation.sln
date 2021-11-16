@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30804.86
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Supercode.Blazor.BreadcrumbNavigation", "src\Supercode.Blazor.BreadcrumbNavigation\Supercode.Blazor.BreadcrumbNavigation.csproj", "{57680F6A-F216-4279-9104-C55E0D8E9D66}"
 EndProject
