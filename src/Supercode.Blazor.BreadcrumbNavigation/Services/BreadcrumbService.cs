@@ -45,14 +45,8 @@ namespace Supercode.Blazor.BreadcrumbNavigation.Services
         {
             var renderFragment = new RenderFragment(builder =>
             {
-                builder.OpenComponent<TBreadcrumb>(0);
-
-                var i = 1;
-                foreach (var (key, value) in parameters)
-                {
-                    builder.AddAttribute(i++, key, value);
-                }
-
+                builder.OpenComponent(0, typeof(TBreadcrumb));
+                builder.AddMultipleAttributes(1, parameters.ToList());
                 builder.CloseComponent();
             });
 

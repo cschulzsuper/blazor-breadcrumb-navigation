@@ -11,6 +11,9 @@ namespace Supercode.Blazor.BreadcrumbNavigation
         [Parameter]
         public string CssClass { get; set; } = string.Empty;
 
+        [Parameter(CaptureUnmatchedValues = true)]
+        public IDictionary<string, object> AdditionalAttributes { get; set; } = null!;
+
         [CascadingParameter]
         public IBreadcrumbService BreadcrumbService { get; set; } = null!;
 

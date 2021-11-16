@@ -1,7 +1,8 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using Supercode.Blazor.BreadcrumbNavigation.Services;
 using Microsoft.AspNetCore.Components;
-using Supercode.Blazor.BreadcrumbNavigation.Services;
+using System;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace BlazorServerSide.Breadcrumbs
 {
@@ -21,7 +22,9 @@ namespace BlazorServerSide.Breadcrumbs
 
             var date = Date ?? DateTime.Today;
 
-            builder.Text(date.ToShortDateString());
+            builder.Text(date.ToShortDateString(),
+                new KeyValuePair<string, object>("aria-current", "page"));
+
             builder.RightIcon("oi oi-x", () => NavigationManager.NavigateTo($"{NavigationManager.BaseUri}fetch-data"));
         }
     }

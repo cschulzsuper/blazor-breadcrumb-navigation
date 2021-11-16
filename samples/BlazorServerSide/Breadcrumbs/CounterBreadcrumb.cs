@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Supercode.Blazor.BreadcrumbNavigation.Services;
+using System.Collections.Generic;
 
 namespace BlazorServerSide.Breadcrumbs
 {
@@ -9,6 +10,7 @@ namespace BlazorServerSide.Breadcrumbs
         public int Counter { get; set; }
 
         public override void Configure(BreadcrumbBuilder builder)
-            => builder.Link($"Counter {Counter}", "counter");
+            => builder.Link($"Counter {Counter}", "counter",
+                new KeyValuePair<string, object>("aria-current", "page"));
     }
 }

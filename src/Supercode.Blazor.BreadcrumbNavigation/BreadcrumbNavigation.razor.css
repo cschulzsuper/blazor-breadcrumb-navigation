@@ -26,15 +26,7 @@
             ul ::deep li a.active:hover {
             }
 
-    ul ::deep li span button {
-        top: 0px;
-        padding: 0 .5rem;
-        font-size: .875rem;
-        border: none;
-        background: transparent;
-    }
-
-    ul ::deep li span span {
+    ul ::deep li span .icon {
         top: 0px;
         padding: 0 .5rem;
         font-size: .875rem;
