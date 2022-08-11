@@ -6,7 +6,7 @@
 
 		<Authors>Christian Schulz</Authors>
 		<Company></Company>
-		<Copyright>Copyright 2021 (c) Christian Schulz. All rights reserved.</Copyright>
+		<Copyright>Copyright 2022 (c) Christian Schulz. All rights reserved.</Copyright>
 
 		<Description>A simple breadcrumb navigation component for your Blazor applications.</Description>
 		<IncludeSymbols>true</IncludeSymbols>
@@ -28,11 +28,11 @@
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'net5.0'">
-		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.13"/>
+		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.17"/>
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
-		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.1"/>
+		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.8"/>
 	</ItemGroup>
 
 	<ItemGroup>
