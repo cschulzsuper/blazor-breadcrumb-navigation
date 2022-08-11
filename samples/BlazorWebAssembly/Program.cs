@@ -1,4 +1,3 @@
-using BlazorWebAssembly.Shared;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using System;
