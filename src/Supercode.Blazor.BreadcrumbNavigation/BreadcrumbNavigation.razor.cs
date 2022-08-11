@@ -2,11 +2,10 @@
 using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Supercode.Blazor.BreadcrumbNavigation
 {
-    public sealed partial class BreadcrumbNavigation : IDisposable
+    public partial class BreadcrumbNavigation : IDisposable
     {
         [Parameter]
         public string CssClass { get; set; } = string.Empty;
@@ -25,10 +24,12 @@ namespace Supercode.Blazor.BreadcrumbNavigation
            BreadcrumbService.Reset += HandleBreadcrumbReset;
         }
 
-        void IDisposable.Dispose()
+        public virtual void Dispose()
         {
             BreadcrumbService.Added -= HandleBreadcrumbAdded;
             BreadcrumbService.Reset -= HandleBreadcrumbReset;
+
+            GC.SuppressFinalize(this);
         }
 
         private void HandleBreadcrumbReset()
